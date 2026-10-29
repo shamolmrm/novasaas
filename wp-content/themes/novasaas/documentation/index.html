@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaSaaS — Documentation</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--primary:#6366F1;--secondary:#EC4899;--accent:#06B6D4;--bg:#0F0A1E;--card:#1A1530;--border:rgba(99,102,241,.2);--text:#F8FAFC;--muted:#94A3B8;--faint:#475569;--success:#10B981;--radius:12px;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;}
+a{color:var(--primary);text-decoration:none;}a:hover{text-decoration:underline;}
+code{background:rgba(99,102,241,.1);border-radius:4px;padding:.15em .45em;font-size:.9em;color:#a5b4fc;font-family:'Fira Code','Consolas',monospace;}
+pre{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;overflow-x:auto;font-size:.875rem;line-height:1.6;margin:1.5rem 0;}
+pre code{background:none;padding:0;color:#e2e8f0;}
+/* Layout */
+.doc-layout{display:grid;grid-template-columns:1fr;min-height:100vh;}
+@media(min-width:1024px){.doc-layout{grid-template-columns:260px 1fr;}}
+/* Sidebar */
+.doc-sidebar{background:var(--card);border-right:1px solid var(--border);padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.doc-sidebar__logo{font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2rem;display:block;}
+.doc-sidebar nav ul{list-style:none;display:flex;flex-direction:column;gap:.25rem;}
+.doc-sidebar nav li.section-heading{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);padding:.75rem 0 .25rem;margin-top:.5rem;}
+.doc-sidebar nav a{display:block;padding:.4rem .75rem;border-radius:8px;font-size:.875rem;color:var(--muted);transition:color .2s,background .2s;}
+.doc-sidebar nav a:hover,.doc-sidebar nav a.active{color:var(--text);background:rgba(99,102,241,.12);text-decoration:none;}
+/* Main */
+.doc-main{padding:clamp(2rem,5vw,4rem);max-width:860px;}
+.doc-section{margin-bottom:4rem;padding-bottom:4rem;border-bottom:1px solid var(--border);}
+.doc-section:last-child{border-bottom:none;}
+h1{font-size:2.5rem;font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+h2{font-size:1.75rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--text);}
+h3{font-size:1.25rem;font-weight:700;margin:2rem 0 .75rem;color:var(--text);}
+h4{font-size:1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;}
+p{color:var(--muted);margin-bottom:1rem;}
+ul,ol{color:var(--muted);padding-left:1.5rem;margin-bottom:1rem;display:flex;flex-direction:column;gap:.4rem;}
+li{line-height:1.6;}
+.badge{display:inline-block;padding:.2em .7em;border-radius:99px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
+.badge-required{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);}
+.badge-recommended{background:rgba(234,179,8,.1);color:#fbbf24;border:1px solid rgba(234,179,8,.2);}
+.badge-new{background:rgba(16,185,129,.12);color:#6ee7b7;border:1px solid rgba(16,185,129,.25);}
+.tip{padding:1rem 1.25rem;border-radius:var(--radius);background:rgba(99,102,241,.08);border-left:3px solid var(--primary);margin:1.5rem 0;color:var(--muted);}
+.tip strong{color:var(--text);}
+.warning{padding:1rem 1.25rem;border-radius:var(--radius);background:rgba(234,179,8,.06);border-left:3px solid #fbbf24;margin:1.5rem 0;color:var(--muted);}
+.warning strong{color:#fbbf24;}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem;}
+th,td{padding:.75rem 1rem;border:1px solid var(--border);text-align:left;}
+th{background:rgba(99,102,241,.08);font-weight:700;color:var(--text);}
+td{color:var(--muted);}
+.file-tree{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;font-family:'Fira Code','Consolas',monospace;font-size:.875rem;color:var(--muted);line-height:2;}
+.file-tree .dir{color:#a5b4fc;font-weight:600;}
+.file-tree .file{color:var(--muted);}
+.file-tree .comment{color:var(--faint);font-style:italic;}
+.steps{counter-reset:steps;display:flex;flex-direction:column;gap:1.5rem;margin:1.5rem 0;}
+.step{display:flex;gap:1rem;}
+.step__num{counter-increment:steps;content:counter(steps);width:32px;height:32px;min-width:32px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.875rem;color:#fff;}
+.step__num::before{content:counter(steps);}
+.step__body{flex:1;}
+.step__body h4{margin-top:0;}
+/* Hero */
+.doc-hero{padding:3rem 0 4rem;border-bottom:1px solid var(--border);margin-bottom:4rem;}
+.doc-hero__version{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--primary);margin-bottom:.5rem;}
+.doc-hero__subtitle{font-size:1.125rem;color:var(--muted);margin-top:.75rem;max-width:560px;}
+.doc-hero__meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem;font-size:.875rem;color:var(--faint);}
+.doc-hero__meta span strong{color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="doc-layout">
+
+<!-- Sidebar -->
+<aside class="doc-sidebar">
+  <span class="doc-sidebar__logo">NovaSaaS Docs</span>
+  <nav aria-label="Documentation sections">
+    <ul>
+      <li class="section-heading">Getting Started</li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#requirements">Requirements</a></li>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#demo-import">Demo Import</a></li>
+      <li class="section-heading">Structure</li>
+      <li><a href="#folder-structure">Folder Structure</a></li>
+      <li><a href="#page-templates">Page Templates</a></li>
+      <li class="section-heading">Customization</li>
+      <li><a href="#customizer">Customizer Guide</a></li>
+      <li><a href="#colors">Colors &amp; Typography</a></li>
+      <li><a href="#menus">Menus</a></li>
+      <li><a href="#widgets">Widgets &amp; Sidebars</a></li>
+      <li class="section-heading">Advanced</li>
+      <li><a href="#child-theme">Child Theme</a></li>
+      <li><a href="#hooks">Hooks &amp; Filters</a></li>
+      <li><a href="#css-variables">CSS Variables</a></li>
+      <li><a href="#rtl">RTL Support</a></li>
+      <li><a href="#translation">Translation</a></li>
+      <li class="section-heading">Reference</li>
+      <li><a href="#plugins">Plugin Compatibility</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#changelog">Changelog</a></li>
+      <li><a href="#support">Support</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<main class="doc-main">
+
+  <!-- Hero -->
+  <div class="doc-hero">
+    <div class="doc-hero__version">Version 1.0.0</div>
+    <h1>NovaSaaS Documentation</h1>
+    <p class="doc-hero__subtitle">Premium dark SaaS &amp; startup landing page WordPress theme kit. Full reference for installation, customization, and advanced usage.</p>
+    <div class="doc-hero__meta">
+      <span><strong>Requires WP:</strong> 6.2+</span>
+      <span><strong>Requires PHP:</strong> 8.0+</span>
+      <span><strong>License:</strong> GPLv2+</span>
+      <span><strong>ThemeForest:</strong> Extended / Regular</span>
+    </div>
+  </div>
+
+  <!-- Introduction -->
+  <section class="doc-section" id="introduction">
+    <h2>Introduction</h2>
+    <p>NovaSaaS is a purpose-built WordPress theme for SaaS companies, startups, and digital agencies. It ships with a complete demo — <strong>StreamFlow</strong>, a fictional project-management SaaS — so you can see a finished site before touching a single setting.</p>
+    <p>The theme is built entirely without jQuery, uses PHP 8 OOP patterns, and follows WordPress Coding Standards throughout. Every feature is accessible, keyboard-navigable, and mobile-first.</p>
+    <h3>What's included</h3>
+    <ul>
+      <li>5 page templates: Home, Features, Pricing, About, Contact</li>
+      <li>Full blog: archive, single post, search, 404</li>
+      <li>WordPress Customizer with 7 sections</li>
+      <li>AJAX contact form with rate limiting</li>
+      <li>One-Click Demo Import integration</li>
+      <li>RTL stylesheet &amp; translation POT file</li>
+      <li>Complete documentation (this file)</li>
+    </ul>
+  </section>
+
+  <!-- Requirements -->
+  <section class="doc-section" id="requirements">
+    <h2>Requirements</h2>
+    <table>
+      <thead><tr><th>Dependency</th><th>Minimum</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>WordPress</td><td>6.2</td><td>Tested up to 6.7</td></tr>
+        <tr><td>PHP</td><td>8.0</td><td>PHP 8.2 recommended</td></tr>
+        <tr><td>MySQL / MariaDB</td><td>5.7 / 10.3</td><td>Standard WP requirement</td></tr>
+        <tr><td>Elementor</td><td>3.x</td><td><span class="badge badge-required">Required</span> for demo layouts</td></tr>
+        <tr><td>One Click Demo Import</td><td>3.x</td><td><span class="badge badge-required">Required</span> for demo import</td></tr>
+        <tr><td>Contact Form 7</td><td>5.x</td><td><span class="badge badge-recommended">Recommended</span></td></tr>
+        <tr><td>WooCommerce</td><td>8.x</td><td><span class="badge badge-recommended">Recommended</span></td></tr>
+      </tbody>
+    </table>
+    <div class="tip"><strong>Tip:</strong> NovaSaaS works without Elementor using the built-in PHP templates. Elementor is only needed to replicate the demo pixel-perfectly.</div>
+  </section>
+
+  <!-- Installation -->
+  <section class="doc-section" id="installation">
+    <h2>Installation</h2>
+    <h3>Method A — WordPress Dashboard (recommended)</h3>
+    <ol class="steps">
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Upload the theme</h4><p>Go to <strong>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</strong>. Select <code>novasaas.zip</code> and click Install Now.</p></div></li>
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Activate</h4><p>Click <strong>Activate</strong> on the success screen.</p></div></li>
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Install required plugins</h4><p>A notice will appear at the top of the dashboard. Click <strong>Begin installing plugins</strong> and install Elementor and One Click Demo Import.</p></div></li>
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Install TGM Plugin Activation library</h4><p>Download <code>class-tgm-plugin-activation.php</code> from <a href="https://github.com/TGMPA/TGM-Plugin-Activation/releases" target="_blank" rel="noopener">github.com/TGMPA</a> and replace the stub file at <code>tgm/class-tgm-plugin-activation.php</code>.</p></div></li>
+    </ol>
+    <h3>Method B — FTP / SFTP</h3>
+    <ol>
+      <li>Unzip <code>novasaas.zip</code> on your computer.</li>
+      <li>Upload the <code>novasaas/</code> folder to <code>/wp-content/themes/</code> via FTP.</li>
+      <li>In the dashboard, go to Appearance &gt; Themes and activate NovaSaaS.</li>
+    </ol>
+  </section>
+
+  <!-- Demo Import -->
+  <section class="doc-section" id="demo-import">
+    <h2>Demo Import</h2>
+    <div class="warning"><strong>Important:</strong> Perform the demo import on a <em>fresh</em> WordPress installation to avoid overwriting existing content.</div>
+    <ol class="steps">
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Activate required plugins</h4><p>Elementor and One Click Demo Import must both be active.</p></div></li>
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Go to Import Demo Data</h4><p>Navigate to <strong>Appearance &gt; Import Demo Data</strong>.</p></div></li>
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Select StreamFlow demo</h4><p>Click the preview image labelled <strong>StreamFlow — Main Demo</strong>.</p></div></li>
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Wait for import to complete</h4><p>The importer will load content, widgets, and customizer settings. This takes 1–3 minutes. Do not close the browser tab.</p></div></li>
+      <li class="step"><div class="step__num"></div><div class="step__body"><h4>Done</h4><p>Visit your site's front page. The StreamFlow demo should be visible. Go to <strong>Appearance &gt; Customize</strong> to replace placeholder text and colors with your own branding.</p></div></li>
+    </ol>
+    <p>If you get a timeout, add <code>set_time_limit(300);</code> to your <code>wp-config.php</code> and retry.</p>
+  </section>
+
+  <!-- Folder Structure -->
+  <section class="doc-section" id="folder-structure">
+    <h2>Folder Structure</h2>
+    <div class="file-tree">
+<span class="dir">novasaas/</span>
+├── <span class="file">style.css</span>              <span class="comment">// Theme header + design tokens</span>
+├── <span class="file">functions.php</span>          <span class="comment">// Bootstrap: constants, requires, hooks</span>
+├── <span class="file">header.php</span>
+├── <span class="file">footer.php</span>
+├── <span class="file">index.php</span>              <span class="comment">// Fallback blog loop</span>
+├── <span class="file">archive.php</span>
+├── <span class="file">single.php</span>
+├── <span class="file">page.php</span>
+├── <span class="file">search.php</span>
+├── <span class="file">404.php</span>
+├── <span class="file">rtl.css</span>
+├── <span class="file">readme.txt</span>
+├── <span class="file">changelog.txt</span>
+├── <span class="dir">assets/</span>
+│   ├── <span class="dir">css/</span>
+│   │   └── <span class="file">theme.css</span>      <span class="comment">// Compiled component CSS</span>
+│   └── <span class="dir">js/</span>
+│       ├── <span class="file">theme.js</span>       <span class="comment">// Main vanilla JS bundle</span>
+│       └── <span class="file">contact-form.js</span>
+├── <span class="dir">inc/</span>
+│   ├── <span class="file">class-theme-setup.php</span>
+│   ├── <span class="file">class-assets.php</span>
+│   ├── <span class="file">class-customizer.php</span>
+│   ├── <span class="file">class-walker-nav.php</span>
+│   ├── <span class="file">class-ajax-handler.php</span>
+│   ├── <span class="file">class-demo-import.php</span>
+│   ├── <span class="file">helpers.php</span>
+│   └── <span class="file">template-tags.php</span>
+├── <span class="dir">page-templates/</span>
+│   ├── <span class="file">template-home.php</span>
+│   ├── <span class="file">template-features.php</span>
+│   ├── <span class="file">template-pricing.php</span>
+│   ├── <span class="file">template-about.php</span>
+│   └── <span class="file">template-contact.php</span>
+├── <span class="dir">tgm/</span>
+│   └── <span class="file">class-tgm-plugin-activation.php</span>
+├── <span class="dir">languages/</span>
+│   └── <span class="file">novasaas.pot</span>
+├── <span class="dir">demo-data/</span>
+│   └── <span class="file">README.txt</span>
+└── <span class="dir">documentation/</span>
+    └── <span class="file">index.html</span>          <span class="comment">// This file</span>
+    </div>
+  </section>
+
+  <!-- Page Templates -->
+  <section class="doc-section" id="page-templates">
+    <h2>Page Templates</h2>
+    <p>To use a template, create a new Page in WordPress, then select the template from the <strong>Page Attributes &gt; Template</strong> dropdown on the right.</p>
+    <table>
+      <thead><tr><th>Template Name</th><th>File</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Home — NovaSaaS</td><td>template-home.php</td><td>8-section SaaS landing page with hero, stats, features, how-it-works, pricing, testimonials, FAQ, CTA.</td></tr>
+        <tr><td>Features — NovaSaaS</td><td>template-features.php</td><td>Detailed feature grid, comparison table, integrations.</td></tr>
+        <tr><td>Pricing — NovaSaaS</td><td>template-pricing.php</td><td>Standalone pricing cards with monthly/yearly toggle, comparison table, enterprise form.</td></tr>
+        <tr><td>About — NovaSaaS</td><td>template-about.php</td><td>Company story, values, team, offices, hiring CTA.</td></tr>
+        <tr><td>Contact — NovaSaaS</td><td>template-contact.php</td><td>AJAX contact form, map, contact info cards.</td></tr>
+      </tbody>
+    </table>
+    <div class="tip"><strong>Tip:</strong> Set the Home page as your static front page via <strong>Settings &gt; Reading &gt; Your homepage displays &gt; A static page</strong>.</div>
+  </section>
+
+  <!-- Customizer -->
+  <section class="doc-section" id="customizer">
+    <h2>Customizer Guide</h2>
+    <p>All theme settings live under <strong>Appearance &gt; Customize &gt; NovaSaaS Theme</strong>. The panel has 7 sections:</p>
+    <table>
+      <thead><tr><th>Section</th><th>Settings</th></tr></thead>
+      <tbody>
+        <tr><td>General</td><td>Preloader on/off</td></tr>
+        <tr><td>Colors</td><td>Primary, Secondary, Accent, Background, Text colors</td></tr>
+        <tr><td>Typography</td><td>Heading font, Body font (Google Fonts), Base font size (14–20 px)</td></tr>
+        <tr><td>Header</td><td>CTA button text &amp; URL, transparent header toggle, sticky toggle</td></tr>
+        <tr><td>Hero Section</td><td>Headline, subheading, primary CTA text &amp; URL, secondary CTA text &amp; URL</td></tr>
+        <tr><td>Footer</td><td>Copyright text, social icons toggle, Twitter/LinkedIn/GitHub/YouTube URLs</td></tr>
+        <tr><td>Blog</td><td>Posts per page, show reading time, show author</td></tr>
+      </tbody>
+    </table>
+    <p>Color changes use <code>postMessage</code> transport — they preview instantly. Font changes require a page reload.</p>
+  </section>
+
+  <!-- Colors -->
+  <section class="doc-section" id="colors">
+    <h2>Colors &amp; Typography</h2>
+    <h3>Default color palette</h3>
+    <table>
+      <thead><tr><th>Token</th><th>Default</th><th>CSS Variable</th></tr></thead>
+      <tbody>
+        <tr><td>Primary</td><td>#6366F1 (Indigo)</td><td><code>--novasaas-primary</code></td></tr>
+        <tr><td>Secondary</td><td>#EC4899 (Pink)</td><td><code>--novasaas-secondary</code></td></tr>
+        <tr><td>Accent</td><td>#06B6D4 (Cyan)</td><td><code>--novasaas-accent</code></td></tr>
+        <tr><td>Background</td><td>#0F0A1E</td><td><code>--novasaas-bg-dark</code></td></tr>
+        <tr><td>Card BG</td><td>#1A1530</td><td><code>--novasaas-bg-card</code></td></tr>
+        <tr><td>Text</td><td>#F8FAFC</td><td><code>--novasaas-text</code></td></tr>
+        <tr><td>Text Muted</td><td>#94A3B8</td><td><code>--novasaas-text-muted</code></td></tr>
+        <tr><td>Success</td><td>#10B981</td><td><code>--novasaas-success</code></td></tr>
+      </tbody>
+    </table>
+    <h3>Fonts</h3>
+    <p>The theme loads <strong>Plus Jakarta Sans</strong> (headings) and <strong>Inter</strong> (body) from Google Fonts. Both can be changed from the Typography section in the Customizer.</p>
+  </section>
+
+  <!-- Menus -->
+  <section class="doc-section" id="menus">
+    <h2>Menus</h2>
+    <p>The theme registers three menu locations:</p>
+    <ul>
+      <li><strong>Primary Menu</strong> — desktop navigation bar. Supports one level of dropdowns.</li>
+      <li><strong>Footer Menu</strong> — horizontal links in the footer bar.</li>
+      <li><strong>Mobile Menu</strong> — independent menu for the slide-in mobile panel.</li>
+    </ul>
+    <p>To assign a menu: go to <strong>Appearance &gt; Menus</strong>, select (or create) a menu, tick the desired location(s) in <em>Menu Settings</em>, and save.</p>
+    <div class="tip"><strong>Dropdowns:</strong> Add a child item beneath any top-level item to create a dropdown. The theme handles all ARIA attributes automatically via <code>NovaSaaS_Walker_Nav</code>.</div>
+  </section>
+
+  <!-- Widgets -->
+  <section class="doc-section" id="widgets">
+    <h2>Widgets &amp; Sidebars</h2>
+    <table>
+      <thead><tr><th>Sidebar ID</th><th>Location</th></tr></thead>
+      <tbody>
+        <tr><td>novasaas-sidebar</td><td>Main sidebar (single posts, pages)</td></tr>
+        <tr><td>novasaas-blog-sidebar</td><td>Blog archive sidebar</td></tr>
+        <tr><td>novasaas-footer-1</td><td>Footer column 1</td></tr>
+        <tr><td>novasaas-footer-2</td><td>Footer column 2</td></tr>
+        <tr><td>novasaas-footer-3</td><td>Footer column 3</td></tr>
+      </tbody>
+    </table>
+    <p>All widgets are wrapped in <code>.novasaas-glass-card</code> for the dark glassmorphism styling.</p>
+  </section>
+
+  <!-- Child Theme -->
+  <section class="doc-section" id="child-theme">
+    <h2>Child Theme</h2>
+    <p>Always use a child theme for customizations so your changes survive theme updates.</p>
+    <h3>1. Create the child theme folder</h3>
+    <p>Create <code>/wp-content/themes/novasaas-child/</code></p>
+    <h3>2. Add style.css</h3>
+    <pre><code>/*
+Theme Name:   NovaSaaS Child
+Template:     novasaas
+Version:      1.0.0
+*/</code></pre>
+    <h3>3. Add functions.php</h3>
+    <pre><code>&lt;?php
+add_action( 'wp_enqueue_scripts', function () {
+    wp_enqueue_style(
+        'novasaas-child-style',
+        get_stylesheet_uri(),
+        array( 'novasaas-style' ),
+        wp_get_theme()-&gt;get( 'Version' )
+    );
+} );</code></pre>
+    <p>Activate the child theme in <strong>Appearance &gt; Themes</strong>.</p>
+  </section>
+
+  <!-- Hooks -->
+  <section class="doc-section" id="hooks">
+    <h2>Hooks &amp; Filters</h2>
+    <table>
+      <thead><tr><th>Hook</th><th>Type</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>novasaas_get_option_{key}</code></td><td>filter</td><td>Filter any theme option value returned by <code>novasaas_get_option()</code>.</td></tr>
+        <tr><td><code>novasaas_reading_wpm</code></td><td>filter</td><td>Change the words-per-minute used for reading time calculation (default: 200).</td></tr>
+        <tr><td><code>novasaas_contact_recipient</code></td><td>filter</td><td>Change the email address that receives contact form submissions.</td></tr>
+        <tr><td><code>ocdi/import_files</code></td><td>filter</td><td>OCDI: register additional demo import packs.</td></tr>
+        <tr><td><code>ocdi/after_import</code></td><td>action</td><td>OCDI: run code after demo import completes.</td></tr>
+      </tbody>
+    </table>
+    <h3>Example: change contact form recipient</h3>
+    <pre><code>add_filter( 'novasaas_contact_recipient', function ( $email ) {
+    return 'hello@yoursite.com';
+} );</code></pre>
+  </section>
+
+  <!-- CSS Variables -->
+  <section class="doc-section" id="css-variables">
+    <h2>CSS Variables</h2>
+    <p>NovaSaaS uses 60+ CSS custom properties. All are defined on <code>:root</code> in <code>style.css</code> and can be overridden in a child theme or via Additional CSS.</p>
+    <pre><code>:root {
+  --novasaas-primary:      #6366F1;
+  --novasaas-secondary:    #EC4899;
+  --novasaas-accent:       #06B6D4;
+  --novasaas-bg-dark:      #0F0A1E;
+  --novasaas-text:         #F8FAFC;
+  --novasaas-text-muted:   #94A3B8;
+  --novasaas-radius-full:  9999px;
+  --novasaas-shadow-glow:  0 0 40px rgba(99,102,241,.25);
+  /* ... and 50+ more */
+}</code></pre>
+  </section>
+
+  <!-- RTL -->
+  <section class="doc-section" id="rtl">
+    <h2>RTL Support</h2>
+    <p>WordPress automatically loads <code>rtl.css</code> when the active language is right-to-left (Arabic, Hebrew, Persian, Urdu, etc.).</p>
+    <p>To test RTL manually, add the following to <code>wp-config.php</code>:</p>
+    <pre><code>define( 'WPLANG', 'ar' ); // Arabic</code></pre>
+    <p>Or install a RTL language pack via <strong>Settings &gt; General &gt; Site Language</strong>.</p>
+  </section>
+
+  <!-- Translation -->
+  <section class="doc-section" id="translation">
+    <h2>Translation</h2>
+    <p>All user-facing strings use the <code>novasaas</code> text domain. A POT template is included at <code>languages/novasaas.pot</code>.</p>
+    <h3>Using PoEdit</h3>
+    <ol>
+      <li>Open PoEdit and choose <em>Create New Translation</em>.</li>
+      <li>Open <code>languages/novasaas.pot</code> as the source.</li>
+      <li>Select your language and translate the strings.</li>
+      <li>Save as <code>novasaas-{locale}.po</code> (e.g. <code>novasaas-de_DE.po</code>) in the <code>languages/</code> folder. PoEdit will also generate the <code>.mo</code> binary.</li>
+    </ol>
+    <p>WordPress picks up the translation automatically when the site language matches the locale.</p>
+  </section>
+
+  <!-- Plugins -->
+  <section class="doc-section" id="plugins">
+    <h2>Plugin Compatibility</h2>
+    <table>
+      <thead><tr><th>Plugin</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Elementor</td><td>✅ Full</td><td>All demo pages built with Elementor</td></tr>
+        <tr><td>One Click Demo Import</td><td>✅ Full</td><td>Integrated via OCDI hooks</td></tr>
+        <tr><td>Contact Form 7</td><td>✅ Full</td><td>Styled to match dark theme</td></tr>
+        <tr><td>WooCommerce</td><td>✅ Full</td><td>Gallery zoom, lightbox, slider declared</td></tr>
+        <tr><td>Yoast SEO</td><td>✅ Full</td><td>Breadcrumbs use Yoast when active</td></tr>
+        <tr><td>Rank Math</td><td>✅ Full</td><td>Breadcrumb fallback chain supported</td></tr>
+        <tr><td>WP Rocket</td><td>✅ Compatible</td><td>No inline scripts that break caching</td></tr>
+        <tr><td>WPML</td><td>✅ Compatible</td><td>All strings in novasaas text domain</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FAQ -->
+  <section class="doc-section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <h3>How do I set the Home page as the front page?</h3>
+    <p>Go to <strong>Settings &gt; Reading</strong>. Under <em>Your homepage displays</em>, select <em>A static page</em>. Set <em>Homepage</em> to your "Home" page (the one using the Home — NovaSaaS template).</p>
+    <h3>The AJAX contact form is not working</h3>
+    <p>Ensure <code>class-ajax-handler.php</code> is being loaded (check <code>functions.php</code>). Also check that the nonce field in the form matches the nonce verified in the handler (<code>novasaas_contact_nonce</code>).</p>
+    <h3>How do I add more pricing plans?</h3>
+    <p>Edit the <code>$plans</code> PHP array at the top of <code>page-templates/template-pricing.php</code> (and <code>template-home.php</code>). Each plan is an associative array with keys: <code>name</code>, <code>price_monthly</code>, <code>price_yearly</code>, <code>description</code>, <code>features</code> (array), <code>cta</code>, <code>cta_url</code>, <code>popular</code>.</p>
+    <h3>How do I use a custom font not on Google Fonts?</h3>
+    <p>Enqueue your font in a child theme's <code>functions.php</code>, then override the CSS variable: <code>--novasaas-font-heading: 'Your Font', sans-serif;</code> in Additional CSS.</p>
+    <h3>Can I remove the StreamFlow branding?</h3>
+    <p>Yes. All demo text is pulled from <code>novasaas_get_option()</code> calls, which read from the Customizer. Update the Hero section and other text fields in <strong>Appearance &gt; Customize &gt; NovaSaaS Theme</strong>.</p>
+  </section>
+
+  <!-- Changelog -->
+  <section class="doc-section" id="changelog">
+    <h2>Changelog</h2>
+    <h3>1.0.0 — 2024-01-01</h3>
+    <p>Initial release. See <code>changelog.txt</code> in the theme root for the full entry.</p>
+  </section>
+
+  <!-- Support -->
+  <section class="doc-section" id="support">
+    <h2>Support</h2>
+    <p>Support is provided exclusively through the ThemeForest item comments section. Before posting:</p>
+    <ol>
+      <li>Read this documentation fully.</li>
+      <li>Check the FAQ section above.</li>
+      <li>Deactivate all plugins and switch to a child theme to rule out conflicts.</li>
+      <li>Include your WordPress version, PHP version, and a description of the issue.</li>
+    </ol>
+    <p>Response time is typically within 24–48 hours on business days.</p>
+    <p><strong>Email:</strong> <a href="mailto:support@novasaas.com">support@novasaas.com</a></p>
+  </section>
+
+</main>
+</div>
+
+<script>
+// Active nav highlight on scroll
+(function(){
+  var links = document.querySelectorAll('.doc-sidebar nav a');
+  var sections = document.querySelectorAll('.doc-section');
+  if(!('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        links.forEach(function(l){l.classList.toggle('active', l.getAttribute('href')==='#'+id);});
+      }
+    });
+  },{threshold:0.25});
+  sections.forEach(function(s){obs.observe(s);});
+}());
+</script>
+</body>
+</html>

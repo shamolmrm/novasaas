@@ -1,0 +1,67 @@
+NovaSaaS — Changelog
+====================
+
+All notable changes to this theme are documented here.
+Format: [Version] — Date / Change type / Description
+
+------------------------------------------------------------------------------
+Version 1.0.0 — 2024-01-01
+------------------------------------------------------------------------------
+
+INITIAL RELEASE
+
+New Features:
+  + style.css          — Full theme header; 60+ CSS custom properties; fluid
+                         typography (clamp); glass-morphism tokens; animation
+                         keyframes; .novasaas-reveal scroll-reveal system.
+  + functions.php      — TGMPA plugin registration; theme setup; widget areas;
+                         Google Fonts enqueueing; resource hints.
+  + inc/class-theme-setup.php   — OOP theme support, nav menus, image sizes,
+                                  sidebar registration, body class filters.
+  + inc/class-assets.php        — OOP script/style enqueueing, editor assets,
+                                  Google Fonts preconnect crossorigin.
+  + inc/class-customizer.php    — 7 Customizer sections (General, Colors,
+                                  Typography, Header, Hero, Footer, Blog);
+                                  dynamic CSS variable output.
+  + inc/class-walker-nav.php    — Bootstrap 5 compatible Walker_Nav_Menu with
+                                  ARIA dropdown support.
+  + inc/class-ajax-handler.php  — Contact form AJAX handler with nonce
+                                  verification, sanitisation, rate limiting,
+                                  wp_mail() delivery.
+  + inc/class-demo-import.php   — OCDI integration: demo file registration,
+                                  post-import front page / menu / reading
+                                  settings assignment.
+  + inc/helpers.php             — novasaas_get_option(), SVG avatar, reading
+                                  time, star rating, breadcrumb, truncate,
+                                  thumbnail URL, logo output helpers.
+  + inc/template-tags.php       — posted_on, posted_by, post_categories,
+                                  edit_post_link template tags.
+  + header.php                  — Sticky header; mobile menu with focus trap;
+                                  keyboard dropdown navigation; overlay.
+  + footer.php                  — 3-column widget footer; social icons;
+                                  back-to-top spring animation.
+  + index.php                   — Blog fallback loop; 3-column post grid.
+  + archive.php                 — Blog archive with sidebar; pagination.
+  + single.php                  — Single post: hero image, breadcrumb, author
+                                  row, post body, tags, share buttons, author
+                                  box, related posts, comments.
+  + page.php                    — Default page template with optional sidebar.
+  + search.php                  — Search results with no-results state.
+  + 404.php                     — Animated 404 page with search + recent posts.
+  + page-templates/template-home.php      — 8-section SaaS landing page.
+  + page-templates/template-features.php — Features page with comparison table.
+  + page-templates/template-pricing.php  — Standalone pricing with toggle.
+  + page-templates/template-about.php    — About / team / offices page.
+  + page-templates/template-contact.php  — Contact form + map page.
+  + assets/css/theme.css        — Compiled CSS for all components.
+  + assets/js/theme.js          — Vanilla JS: sticky header, mobile menu,
+                                  scroll reveal, count-up, pricing toggle,
+                                  FAQ accordion, smooth scroll, back-to-top,
+                                  lazy load, dropdown keyboard nav, copy link.
+  + assets/js/contact-form.js   — AJAX contact form with inline validation.
+  + rtl.css                     — Right-to-left layout overrides.
+  + languages/novasaas.pot      — Full POT translation template.
+  + tgm/class-tgm-plugin-activation.php — TGM Plugin Activation stub.
+  + documentation/index.html    — Full HTML documentation.
+  + demo-data/README.txt        — Demo content installation guide.
+  + readme.txt                  — WordPress standard readme.

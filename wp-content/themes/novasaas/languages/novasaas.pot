@@ -1,0 +1,516 @@
+# Copyright (C) 2024 NovaSaaS
+# This file is distributed under the same license as the NovaSaaS package.
+msgid ""
+msgstr ""
+"Project-Id-Version: NovaSaaS 1.0.0\n"
+"Report-Msgid-Bugs-To: https://novasaas.com/support\n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: WP-CLI 2.x\n"
+"X-Domain: novasaas\n"
+
+#. Theme Name of the theme/plugin
+msgid "NovaSaaS"
+msgstr ""
+
+#. Theme URI of the theme/plugin
+msgid "https://novasaas.com"
+msgstr ""
+
+#. Description of the theme/plugin
+msgid "A premium dark SaaS & startup landing page WordPress theme kit."
+msgstr ""
+
+#. Author of the theme/plugin
+msgid "NovaSaaS Team"
+msgstr ""
+
+#: functions.php
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php
+msgid "Mobile Menu"
+msgstr ""
+
+#: functions.php
+msgid "Main Sidebar"
+msgstr ""
+
+#: functions.php
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php
+msgid "Footer Column 1"
+msgstr ""
+
+#: functions.php
+msgid "Footer Column 2"
+msgstr ""
+
+#: functions.php
+msgid "Footer Column 3"
+msgstr ""
+
+#: functions.php
+msgid "Primary (Indigo)"
+msgstr ""
+
+#: functions.php
+msgid "Secondary (Pink)"
+msgstr ""
+
+#: functions.php
+msgid "Accent (Cyan)"
+msgstr ""
+
+#: functions.php
+msgid "Dark Background"
+msgstr ""
+
+#: functions.php
+msgid "Light Text"
+msgstr ""
+
+#: functions.php
+msgid "NovaSaaS Hero (1920×1080)"
+msgstr ""
+
+#: functions.php
+msgid "NovaSaaS Blog (800×500)"
+msgstr ""
+
+#: functions.php
+msgid "NovaSaaS Team (400×400)"
+msgstr ""
+
+#: functions.php
+msgid "NovaSaaS Thumbnail (600×400)"
+msgstr ""
+
+#: archive.php
+msgid "Latest from our blog"
+msgstr ""
+
+#: archive.php
+msgid "Insights, tutorials, and product updates from the StreamFlow team."
+msgstr ""
+
+#: archive.php
+msgid "Blog posts"
+msgstr ""
+
+#: archive.php
+msgid "Blog sidebar"
+msgstr ""
+
+#: archive.php
+msgid "Search"
+msgstr ""
+
+#: archive.php
+msgid "Recent Posts"
+msgstr ""
+
+#: archive.php
+msgid "Categories"
+msgstr ""
+
+#: archive.php
+msgid "Tags"
+msgstr ""
+
+#: archive.php
+msgid "No posts found"
+msgstr ""
+
+#: archive.php
+msgid "Check back soon for new content."
+msgstr ""
+
+#: archive.php
+#: search.php
+msgid "Previous"
+msgstr ""
+
+#: archive.php
+#: search.php
+msgid "Next"
+msgstr ""
+
+#: archive.php
+#: search.php
+msgid "Page"
+msgstr ""
+
+#: single.php
+msgid "Article"
+msgstr ""
+
+#: single.php
+msgid "Post tags"
+msgstr ""
+
+#: single.php
+msgid "Tags:"
+msgstr ""
+
+#: single.php
+msgid "Share:"
+msgstr ""
+
+#: single.php
+msgid "Share on Twitter"
+msgstr ""
+
+#: single.php
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: single.php
+msgid "Copy link to clipboard"
+msgstr ""
+
+#: single.php
+msgid "Copy Link"
+msgstr ""
+
+#: single.php
+msgid "Copied!"
+msgstr ""
+
+#: single.php
+msgid "View all posts"
+msgstr ""
+
+#: single.php
+msgid "You might also like"
+msgstr ""
+
+#: single.php
+msgid "Post sidebar"
+msgstr ""
+
+#: page.php
+msgid "Page content"
+msgstr ""
+
+#: page.php
+msgid "Page sidebar"
+msgstr ""
+
+#: page.php
+msgid "Pages:"
+msgstr ""
+
+#: search.php
+msgid "Results for \"%s\""
+msgstr ""
+
+#: search.php
+msgid "Search"
+msgstr ""
+
+#: search.php
+msgid "%d result found"
+msgid_plural "%d results found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: search.php
+msgid "Search results"
+msgstr ""
+
+#: search.php
+msgid "Search posts, pages..."
+msgstr ""
+
+#: search.php
+msgid "No results found"
+msgstr ""
+
+#: search.php
+msgid "Try a different search term or browse our latest posts below."
+msgstr ""
+
+#: 404.php
+msgid "Page not found"
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Please fill in all required fields."
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Name must be between 2 and 100 characters."
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Message must be between 10 and 5000 characters."
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Too many submissions. Please try again in an hour."
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "[%1$s] New Contact Message: %2$s"
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "General Inquiry"
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Name: %s"
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Email: %s"
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Subject: %s"
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Message:"
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Failed to send message. Please try again or contact us directly."
+msgstr ""
+
+#: inc/class-ajax-handler.php
+msgid "Thank you! Your message has been sent. We'll be in touch within 24 hours."
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "NovaSaaS Theme"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Customize the NovaSaaS theme settings."
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "General"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Enable Preloader"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Custom CSS"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Use Appearance → Customize → Additional CSS for custom styles."
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Colors"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Primary Color"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Accent Color"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Background Color"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Text Color"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Typography"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Heading Font"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Body Font"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Base Font Size (px)"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Range: 14–20px"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Header"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "CTA Button Text"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Start Free Trial"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "CTA Button URL"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Transparent Header on Front Page"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Sticky Header on Scroll"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Hero Section"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Headline"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Ship faster. Collaborate smarter."
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Subheading"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "The all-in-one project management platform trusted by 10,000+ teams worldwide."
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Primary CTA Text"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Start for Free"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Primary CTA URL"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Secondary CTA Text"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Watch Demo"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Secondary CTA URL"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Footer"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Show Social Icons"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Twitter / X URL"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "LinkedIn URL"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "GitHub URL"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "YouTube URL"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Blog"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Posts Per Page"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Show Reading Time"
+msgstr ""
+
+#: inc/class-customizer.php
+msgid "Show Author on Post Cards"
+msgstr ""
+
+#: inc/class-demo-import.php
+msgid "StreamFlow — Main Demo"
+msgstr ""
+
+#: inc/class-demo-import.php
+msgid "This will import all demo pages, posts, menus, and customizer settings. Import may take 1–3 minutes."
+msgstr ""
+
+#: inc/class-demo-import.php
+msgid "Before importing:"
+msgstr ""
+
+#: inc/class-demo-import.php
+msgid "Make sure Elementor is installed and activated, then click the preview image below."
+msgstr ""
+
+#: inc/class-demo-import.php
+msgid "Import the NovaSaaS StreamFlow demo with one click to get all pages, menus, and customizer settings set up automatically."
+msgstr ""
+
+#: inc/helpers.php
+msgid "Home"
+msgstr ""
+
+#: inc/helpers.php
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/helpers.php
+msgid "404 — Page Not Found"
+msgstr ""
+
+#: inc/template-tags.php
+msgid "Edit <span class=\"novasaas-sr-only\">\"%s\"</span>"
+msgstr ""

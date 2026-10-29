@@ -1,0 +1,1046 @@
+/*
+Theme Name: NovaSaaS
+Theme URI: https://themeforest.net
+Author: YourName
+Author URI: https://yoursite.com
+Description: NovaSaaS is a premium WordPress theme kit for SaaS startups, software companies, and tech businesses. Built with Elementor, featuring dark glassmorphism design, animated hero sections, pricing tables, and everything a modern SaaS landing page needs.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 8.0
+License: Envato Regular/Extended License
+License URI: https://themeforest.net/licenses
+Text Domain: novasaas
+Tags: dark, saas, startup, elementor, one-page, landing-page, responsive, rtl-language-support
+*/
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES
+   ============================================================================= */
+
+:root {
+	/* Brand Colors */
+	--novasaas-primary:          #6366F1;
+	--novasaas-primary-dark:     #4F46E5;
+	--novasaas-primary-light:    #818CF8;
+	--novasaas-secondary:        #EC4899;
+	--novasaas-secondary-dark:   #DB2777;
+	--novasaas-secondary-light:  #F472B6;
+	--novasaas-accent:           #06B6D4;
+	--novasaas-accent-dark:      #0891B2;
+	--novasaas-accent-light:     #22D3EE;
+
+	/* Background Colors */
+	--novasaas-bg-dark:          #0F0A1E;
+	--novasaas-bg-card:          #1A1530;
+	--novasaas-bg-card-hover:    #211C3A;
+	--novasaas-bg-section:       #130D24;
+	--novasaas-bg-overlay:       rgba(15, 10, 30, 0.85);
+
+	/* Border Colors */
+	--novasaas-border:           rgba(99, 102, 241, 0.2);
+	--novasaas-border-hover:     rgba(99, 102, 241, 0.5);
+	--novasaas-border-subtle:    rgba(255, 255, 255, 0.06);
+
+	/* Text Colors */
+	--novasaas-text:             #F8FAFC;
+	--novasaas-text-muted:       #94A3B8;
+	--novasaas-text-faint:       #64748B;
+	--novasaas-text-inverse:     #0F0A1E;
+
+	/* Semantic Colors */
+	--novasaas-success:          #10B981;
+	--novasaas-success-bg:       rgba(16, 185, 129, 0.1);
+	--novasaas-warning:          #F59E0B;
+	--novasaas-warning-bg:       rgba(245, 158, 11, 0.1);
+	--novasaas-danger:           #EF4444;
+	--novasaas-danger-bg:        rgba(239, 68, 68, 0.1);
+	--novasaas-info:             #3B82F6;
+	--novasaas-info-bg:          rgba(59, 130, 246, 0.1);
+
+	/* Typography */
+	--novasaas-font-heading:     'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+	--novasaas-font-body:        'Inter', system-ui, -apple-system, sans-serif;
+	--novasaas-font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+
+	/* Font Sizes (fluid) */
+	--novasaas-text-xs:          clamp(0.6875rem, 0.65rem + 0.1875vw, 0.75rem);
+	--novasaas-text-sm:          clamp(0.8125rem, 0.775rem + 0.1875vw, 0.875rem);
+	--novasaas-text-base:        clamp(0.9375rem, 0.9rem + 0.1875vw, 1rem);
+	--novasaas-text-lg:          clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+	--novasaas-text-xl:          clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);
+	--novasaas-text-2xl:         clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+	--novasaas-text-3xl:         clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+	--novasaas-text-4xl:         clamp(1.875rem, 1.5rem + 1.875vw, 2.25rem);
+	--novasaas-text-5xl:         clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+	--novasaas-text-6xl:         clamp(2.75rem, 2rem + 3.75vw, 4rem);
+	--novasaas-text-7xl:         clamp(3rem, 2rem + 5vw, 5rem);
+
+	/* Font Weights */
+	--novasaas-weight-regular:   400;
+	--novasaas-weight-medium:    500;
+	--novasaas-weight-semibold:  600;
+	--novasaas-weight-bold:      700;
+	--novasaas-weight-extrabold: 800;
+
+	/* Line Heights */
+	--novasaas-leading-tight:    1.2;
+	--novasaas-leading-snug:     1.35;
+	--novasaas-leading-normal:   1.5;
+	--novasaas-leading-relaxed:  1.65;
+	--novasaas-leading-loose:    1.8;
+
+	/* Spacing Scale */
+	--novasaas-space-1:          0.25rem;
+	--novasaas-space-2:          0.5rem;
+	--novasaas-space-3:          0.75rem;
+	--novasaas-space-4:          1rem;
+	--novasaas-space-5:          1.25rem;
+	--novasaas-space-6:          1.5rem;
+	--novasaas-space-8:          2rem;
+	--novasaas-space-10:         2.5rem;
+	--novasaas-space-12:         3rem;
+	--novasaas-space-16:         4rem;
+	--novasaas-space-20:         5rem;
+	--novasaas-space-24:         6rem;
+	--novasaas-space-32:         8rem;
+
+	/* Border Radius */
+	--novasaas-radius-sm:        0.375rem;
+	--novasaas-radius-md:        0.625rem;
+	--novasaas-radius-lg:        1rem;
+	--novasaas-radius-xl:        1.5rem;
+	--novasaas-radius-2xl:       2rem;
+	--novasaas-radius-full:      9999px;
+
+	/* Shadows */
+	--novasaas-shadow-sm:        0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+	--novasaas-shadow-md:        0 4px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+	--novasaas-shadow-lg:        0 10px 15px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2);
+	--novasaas-shadow-xl:        0 20px 25px rgba(0, 0, 0, 0.5), 0 8px 10px rgba(0, 0, 0, 0.3);
+	--novasaas-shadow-2xl:       0 25px 50px rgba(0, 0, 0, 0.6);
+	--novasaas-shadow-glow:      0 0 40px rgba(99, 102, 241, 0.25);
+	--novasaas-shadow-glow-pink: 0 0 40px rgba(236, 72, 153, 0.25);
+	--novasaas-shadow-glow-cyan: 0 0 40px rgba(6, 182, 212, 0.25);
+	--novasaas-shadow-card:      0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+
+	/* Gradients */
+	--novasaas-gradient-primary:  linear-gradient(135deg, #6366F1 0%, #EC4899 100%);
+	--novasaas-gradient-accent:   linear-gradient(135deg, #06B6D4 0%, #6366F1 100%);
+	--novasaas-gradient-dark:     linear-gradient(180deg, #0F0A1E 0%, #1A1530 100%);
+	--novasaas-gradient-radial:   radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+	--novasaas-gradient-mesh:     radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.1) 0, transparent 50%),
+	                              radial-gradient(at 80% 0%, rgba(236, 72, 153, 0.08) 0, transparent 50%),
+	                              radial-gradient(at 0% 50%, rgba(6, 182, 212, 0.08) 0, transparent 50%);
+
+	/* Transitions */
+	--novasaas-transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+	--novasaas-transition-base:   250ms cubic-bezier(0.4, 0, 0.2, 1);
+	--novasaas-transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+	--novasaas-transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	/* Z-Index Scale */
+	--novasaas-z-below:          -1;
+	--novasaas-z-base:           0;
+	--novasaas-z-raised:         10;
+	--novasaas-z-dropdown:       100;
+	--novasaas-z-sticky:         200;
+	--novasaas-z-overlay:        300;
+	--novasaas-z-modal:          400;
+	--novasaas-z-toast:          500;
+
+	/* Container */
+	--novasaas-container-sm:     640px;
+	--novasaas-container-md:     768px;
+	--novasaas-container-lg:     1024px;
+	--novasaas-container-xl:     1280px;
+	--novasaas-container-2xl:    1440px;
+	--novasaas-container-pad:    clamp(1rem, 4vw, 2rem);
+
+	/* Glassmorphism */
+	--novasaas-glass-bg:         rgba(26, 21, 48, 0.7);
+	--novasaas-glass-border:     rgba(99, 102, 241, 0.2);
+	--novasaas-glass-blur:       blur(16px);
+	--novasaas-glass-blur-heavy: blur(32px);
+}
+
+/* =============================================================================
+   MODERN CSS RESET
+   ============================================================================= */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	tab-size: 4;
+	scroll-behavior: smooth;
+	hanging-punctuation: first last;
+}
+
+body {
+	min-height: 100dvh;
+	line-height: var(--novasaas-leading-normal);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-family: var(--novasaas-font-body);
+	font-size: var(--novasaas-text-base);
+	color: var(--novasaas-text);
+	background-color: var(--novasaas-bg-dark);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--novasaas-font-heading);
+	font-weight: var(--novasaas-weight-bold);
+	line-height: var(--novasaas-leading-tight);
+	color: var(--novasaas-text);
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:focus-visible {
+	outline: 2px solid var(--novasaas-primary);
+	outline-offset: 3px;
+}
+
+::selection {
+	background-color: rgba(99, 102, 241, 0.3);
+	color: var(--novasaas-text);
+}
+
+/* =============================================================================
+   BASE TYPOGRAPHY
+   ============================================================================= */
+
+h1 { font-size: var(--novasaas-text-6xl); letter-spacing: -0.03em; }
+h2 { font-size: var(--novasaas-text-5xl); letter-spacing: -0.025em; }
+h3 { font-size: var(--novasaas-text-4xl); letter-spacing: -0.02em; }
+h4 { font-size: var(--novasaas-text-3xl); letter-spacing: -0.015em; }
+h5 { font-size: var(--novasaas-text-2xl); letter-spacing: -0.01em; }
+h6 { font-size: var(--novasaas-text-xl); }
+
+p {
+	font-size: var(--novasaas-text-base);
+	line-height: var(--novasaas-leading-relaxed);
+	color: var(--novasaas-text-muted);
+}
+
+a {
+	color: var(--novasaas-primary-light);
+	transition: color var(--novasaas-transition-fast);
+}
+
+a:hover {
+	color: var(--novasaas-primary);
+}
+
+strong,
+b {
+	font-weight: var(--novasaas-weight-semibold);
+	color: var(--novasaas-text);
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+code,
+kbd,
+samp,
+pre {
+	font-family: var(--novasaas-font-mono);
+	font-size: 0.875em;
+}
+
+code {
+	background: rgba(99, 102, 241, 0.1);
+	border: 1px solid var(--novasaas-border);
+	border-radius: var(--novasaas-radius-sm);
+	padding: 0.125em 0.375em;
+	color: var(--novasaas-primary-light);
+}
+
+pre {
+	background: var(--novasaas-bg-card);
+	border: 1px solid var(--novasaas-border);
+	border-radius: var(--novasaas-radius-md);
+	padding: var(--novasaas-space-6);
+	overflow-x: auto;
+}
+
+blockquote {
+	border-left: 3px solid var(--novasaas-primary);
+	padding-left: var(--novasaas-space-6);
+	color: var(--novasaas-text-muted);
+	font-style: italic;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--novasaas-border-subtle);
+	margin: var(--novasaas-space-8) 0;
+}
+
+/* =============================================================================
+   LAYOUT — CONTAINER
+   ============================================================================= */
+
+.novasaas-container {
+	width: 100%;
+	max-width: var(--novasaas-container-xl);
+	margin-inline: auto;
+	padding-inline: var(--novasaas-container-pad);
+}
+
+.novasaas-container--sm  { max-width: var(--novasaas-container-sm); }
+.novasaas-container--md  { max-width: var(--novasaas-container-md); }
+.novasaas-container--lg  { max-width: var(--novasaas-container-lg); }
+.novasaas-container--2xl { max-width: var(--novasaas-container-2xl); }
+
+/* =============================================================================
+   LAYOUT — SECTION
+   ============================================================================= */
+
+.novasaas-section {
+	position: relative;
+	padding-block: clamp(3rem, 8vw, 7rem);
+	overflow: hidden;
+}
+
+.novasaas-section--sm {
+	padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.novasaas-section--lg {
+	padding-block: clamp(4rem, 10vw, 10rem);
+}
+
+.novasaas-section--dark {
+	background-color: var(--novasaas-bg-dark);
+}
+
+.novasaas-section--card {
+	background-color: var(--novasaas-bg-section);
+}
+
+.novasaas-section__header {
+	text-align: center;
+	max-width: 700px;
+	margin-inline: auto;
+	margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.novasaas-section__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--novasaas-space-2);
+	font-size: var(--novasaas-text-sm);
+	font-weight: var(--novasaas-weight-semibold);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--novasaas-primary-light);
+	margin-bottom: var(--novasaas-space-4);
+}
+
+.novasaas-section__title {
+	font-size: var(--novasaas-text-5xl);
+	font-weight: var(--novasaas-weight-extrabold);
+	line-height: var(--novasaas-leading-tight);
+	letter-spacing: -0.025em;
+	color: var(--novasaas-text);
+	margin-bottom: var(--novasaas-space-5);
+}
+
+.novasaas-section__subtitle {
+	font-size: var(--novasaas-text-lg);
+	color: var(--novasaas-text-muted);
+	line-height: var(--novasaas-leading-relaxed);
+	max-width: 560px;
+	margin-inline: auto;
+}
+
+/* =============================================================================
+   RESPONSIVE GRID HELPERS
+   ============================================================================= */
+
+.novasaas-grid {
+	display: grid;
+	gap: var(--novasaas-space-6);
+}
+
+.novasaas-grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.novasaas-grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.novasaas-grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+
+@media (min-width: 768px) {
+	.novasaas-grid--2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+	.novasaas-grid--3 { grid-template-columns: repeat(3, 1fr); }
+	.novasaas-grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+.novasaas-flex {
+	display: flex;
+	gap: var(--novasaas-space-4);
+}
+
+.novasaas-flex--center {
+	align-items: center;
+	justify-content: center;
+}
+
+.novasaas-flex--between {
+	align-items: center;
+	justify-content: space-between;
+}
+
+.novasaas-flex--wrap {
+	flex-wrap: wrap;
+}
+
+/* =============================================================================
+   BUTTONS
+   ============================================================================= */
+
+.novasaas-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--novasaas-space-2);
+	padding: 0.75em 1.75em;
+	font-family: var(--novasaas-font-body);
+	font-size: var(--novasaas-text-base);
+	font-weight: var(--novasaas-weight-semibold);
+	line-height: 1;
+	border-radius: var(--novasaas-radius-full);
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: transform var(--novasaas-transition-fast),
+	            box-shadow var(--novasaas-transition-fast),
+	            background var(--novasaas-transition-base),
+	            border-color var(--novasaas-transition-base),
+	            color var(--novasaas-transition-base);
+	text-decoration: none;
+	white-space: nowrap;
+	position: relative;
+	overflow: hidden;
+	background: var(--novasaas-gradient-primary);
+	color: #fff;
+	box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.novasaas-btn::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+	opacity: 0;
+	transition: opacity var(--novasaas-transition-fast);
+}
+
+.novasaas-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(99, 102, 241, 0.45);
+	color: #fff;
+}
+
+.novasaas-btn:hover::before {
+	opacity: 1;
+}
+
+.novasaas-btn:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+.novasaas-btn--sm {
+	padding: 0.55em 1.25em;
+	font-size: var(--novasaas-text-sm);
+}
+
+.novasaas-btn--lg {
+	padding: 0.9em 2.25em;
+	font-size: var(--novasaas-text-lg);
+}
+
+.novasaas-btn--secondary {
+	background: var(--novasaas-gradient-accent);
+	box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.novasaas-btn--secondary:hover {
+	box-shadow: 0 8px 25px rgba(6, 182, 212, 0.45);
+}
+
+.novasaas-btn-outline {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--novasaas-space-2);
+	padding: 0.75em 1.75em;
+	font-family: var(--novasaas-font-body);
+	font-size: var(--novasaas-text-base);
+	font-weight: var(--novasaas-weight-semibold);
+	line-height: 1;
+	border-radius: var(--novasaas-radius-full);
+	border: 2px solid var(--novasaas-border-hover);
+	background: transparent;
+	color: var(--novasaas-text);
+	cursor: pointer;
+	transition: transform var(--novasaas-transition-fast),
+	            box-shadow var(--novasaas-transition-fast),
+	            background var(--novasaas-transition-base),
+	            border-color var(--novasaas-transition-base);
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.novasaas-btn-outline:hover {
+	background: rgba(99, 102, 241, 0.1);
+	border-color: var(--novasaas-primary);
+	color: var(--novasaas-primary-light);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+}
+
+.novasaas-btn-outline--sm {
+	padding: 0.55em 1.25em;
+	font-size: var(--novasaas-text-sm);
+}
+
+.novasaas-btn-outline--lg {
+	padding: 0.9em 2.25em;
+	font-size: var(--novasaas-text-lg);
+}
+
+/* =============================================================================
+   BADGE
+   ============================================================================= */
+
+.novasaas-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--novasaas-space-1);
+	padding: 0.25em 0.75em;
+	font-size: var(--novasaas-text-xs);
+	font-weight: var(--novasaas-weight-semibold);
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	border-radius: var(--novasaas-radius-full);
+	border: 1px solid currentColor;
+	line-height: 1.5;
+}
+
+.novasaas-badge--primary {
+	color: var(--novasaas-primary-light);
+	background: rgba(99, 102, 241, 0.12);
+	border-color: rgba(99, 102, 241, 0.3);
+}
+
+.novasaas-badge--secondary {
+	color: var(--novasaas-secondary-light);
+	background: rgba(236, 72, 153, 0.12);
+	border-color: rgba(236, 72, 153, 0.3);
+}
+
+.novasaas-badge--accent {
+	color: var(--novasaas-accent-light);
+	background: rgba(6, 182, 212, 0.12);
+	border-color: rgba(6, 182, 212, 0.3);
+}
+
+.novasaas-badge--success {
+	color: var(--novasaas-success);
+	background: var(--novasaas-success-bg);
+	border-color: rgba(16, 185, 129, 0.3);
+}
+
+.novasaas-badge--warning {
+	color: var(--novasaas-warning);
+	background: var(--novasaas-warning-bg);
+	border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* =============================================================================
+   GLASSMORPHISM CARD
+   ============================================================================= */
+
+.novasaas-glass-card {
+	background: var(--novasaas-glass-bg);
+	border: 1px solid var(--novasaas-glass-border);
+	border-radius: var(--novasaas-radius-xl);
+	backdrop-filter: var(--novasaas-glass-blur);
+	-webkit-backdrop-filter: var(--novasaas-glass-blur);
+	box-shadow: var(--novasaas-shadow-card);
+	transition: transform var(--novasaas-transition-base),
+	            box-shadow var(--novasaas-transition-base),
+	            border-color var(--novasaas-transition-base);
+	position: relative;
+	overflow: hidden;
+}
+
+.novasaas-glass-card::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+	pointer-events: none;
+	border-radius: inherit;
+}
+
+.novasaas-glass-card:hover {
+	transform: translateY(-4px);
+	border-color: var(--novasaas-border-hover);
+	box-shadow: var(--novasaas-shadow-xl), var(--novasaas-shadow-glow);
+}
+
+.novasaas-glass-card--heavy {
+	backdrop-filter: var(--novasaas-glass-blur-heavy);
+	-webkit-backdrop-filter: var(--novasaas-glass-blur-heavy);
+}
+
+.novasaas-glass-card--no-hover:hover {
+	transform: none;
+	box-shadow: var(--novasaas-shadow-card);
+}
+
+/* =============================================================================
+   GRADIENT TEXT
+   ============================================================================= */
+
+.novasaas-gradient-text {
+	background: var(--novasaas-gradient-primary);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.novasaas-gradient-text--accent {
+	background: var(--novasaas-gradient-accent);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.novasaas-gradient-text--secondary {
+	background: linear-gradient(135deg, #EC4899 0%, #F97316 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* =============================================================================
+   DARK OVERLAY UTILITIES
+   ============================================================================= */
+
+.novasaas-overlay {
+	position: relative;
+}
+
+.novasaas-overlay::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--novasaas-bg-overlay);
+	pointer-events: none;
+	z-index: var(--novasaas-z-raised);
+}
+
+.novasaas-overlay--gradient::after {
+	background: linear-gradient(to bottom, transparent 0%, rgba(15, 10, 30, 0.9) 100%);
+}
+
+.novasaas-overlay--light::after {
+	background: rgba(15, 10, 30, 0.5);
+}
+
+.novasaas-overlay--heavy::after {
+	background: rgba(15, 10, 30, 0.95);
+}
+
+/* Background mesh/glow */
+.novasaas-bg-mesh {
+	background: var(--novasaas-gradient-mesh);
+}
+
+.novasaas-bg-glow {
+	position: relative;
+}
+
+.novasaas-bg-glow::before {
+	content: '';
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	z-index: var(--novasaas-z-below);
+}
+
+/* =============================================================================
+   ANIMATION CLASSES
+   ============================================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+	/* fadeInUp */
+	@keyframes novasaas-fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(32px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* slideInLeft */
+	@keyframes novasaas-slideInLeft {
+		from {
+			opacity: 0;
+			transform: translateX(-40px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	/* slideInRight */
+	@keyframes novasaas-slideInRight {
+		from {
+			opacity: 0;
+			transform: translateX(40px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	/* scaleIn */
+	@keyframes novasaas-scaleIn {
+		from {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	/* float */
+	@keyframes novasaas-float {
+		0%, 100% { transform: translateY(0); }
+		50%       { transform: translateY(-12px); }
+	}
+
+	/* pulse-glow */
+	@keyframes novasaas-pulse-glow {
+		0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
+		50%       { box-shadow: 0 0 40px rgba(99, 102, 241, 0.5); }
+	}
+
+	/* shimmer */
+	@keyframes novasaas-shimmer {
+		0%   { background-position: -200% center; }
+		100% { background-position: 200% center; }
+	}
+
+	/* countUp is driven by JS — this class marks elements for the observer */
+	.novasaas-count-up {
+		transition: none;
+	}
+
+	.novasaas-animate-fade-up {
+		animation: novasaas-fadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.novasaas-animate-slide-left {
+		animation: novasaas-slideInLeft 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.novasaas-animate-slide-right {
+		animation: novasaas-slideInRight 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.novasaas-animate-scale-in {
+		animation: novasaas-scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.novasaas-animate-float {
+		animation: novasaas-float 4s ease-in-out infinite;
+	}
+
+	.novasaas-animate-pulse-glow {
+		animation: novasaas-pulse-glow 2.5s ease-in-out infinite;
+	}
+
+	/* Stagger delays */
+	.novasaas-delay-1 { animation-delay: 100ms; }
+	.novasaas-delay-2 { animation-delay: 200ms; }
+	.novasaas-delay-3 { animation-delay: 300ms; }
+	.novasaas-delay-4 { animation-delay: 400ms; }
+	.novasaas-delay-5 { animation-delay: 500ms; }
+	.novasaas-delay-6 { animation-delay: 600ms; }
+
+	/* Intersection observer targets — hidden until triggered */
+	.novasaas-reveal {
+		opacity: 0;
+		transform: translateY(24px);
+		transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+		            transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.novasaas-reveal.is-visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.novasaas-reveal--left {
+		opacity: 0;
+		transform: translateX(-32px);
+		transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+		            transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.novasaas-reveal--left.is-visible {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.novasaas-reveal--right {
+		opacity: 0;
+		transform: translateX(32px);
+		transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+		            transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.novasaas-reveal--right.is-visible {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+	.novasaas-reveal,
+	.novasaas-reveal--left,
+	.novasaas-reveal--right {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+/* =============================================================================
+   FORM ELEMENTS
+   ============================================================================= */
+
+.novasaas-input {
+	width: 100%;
+	padding: 0.75em 1em;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid var(--novasaas-border);
+	border-radius: var(--novasaas-radius-md);
+	color: var(--novasaas-text);
+	font-size: var(--novasaas-text-base);
+	transition: border-color var(--novasaas-transition-fast),
+	            box-shadow var(--novasaas-transition-fast);
+}
+
+.novasaas-input::placeholder {
+	color: var(--novasaas-text-faint);
+}
+
+.novasaas-input:focus {
+	outline: none;
+	border-color: var(--novasaas-primary);
+	box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* =============================================================================
+   DIVIDER / SEPARATOR
+   ============================================================================= */
+
+.novasaas-divider {
+	width: 60px;
+	height: 3px;
+	background: var(--novasaas-gradient-primary);
+	border-radius: var(--novasaas-radius-full);
+	margin: var(--novasaas-space-4) auto;
+}
+
+.novasaas-divider--left {
+	margin-left: 0;
+}
+
+/* =============================================================================
+   SKIP LINK (ACCESSIBILITY)
+   ============================================================================= */
+
+.novasaas-skip-link {
+	position: absolute;
+	top: -100%;
+	left: 0;
+	padding: var(--novasaas-space-3) var(--novasaas-space-6);
+	background: var(--novasaas-primary);
+	color: #fff;
+	font-weight: var(--novasaas-weight-semibold);
+	z-index: var(--novasaas-z-toast);
+	transition: top var(--novasaas-transition-fast);
+}
+
+.novasaas-skip-link:focus {
+	top: 0;
+}
+
+/* =============================================================================
+   SCREEN-READER ONLY
+   ============================================================================= */
+
+.novasaas-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* =============================================================================
+   WORDPRESS CORE COMPATIBILITY
+   ============================================================================= */
+
+.alignnone  { margin: 0; }
+.aligncenter { display: block; margin: var(--novasaas-space-4) auto; }
+.alignleft  { float: left; margin: var(--novasaas-space-2) var(--novasaas-space-4) var(--novasaas-space-2) 0; }
+.alignright { float: right; margin: var(--novasaas-space-2) 0 var(--novasaas-space-2) var(--novasaas-space-4); }
+.alignwide  { width: calc(100% + 4rem); margin-inline: -2rem; }
+.alignfull  { width: 100vw; margin-inline: calc(50% - 50vw); }
+
+.wp-caption { max-width: 100%; }
+.wp-caption-text {
+	font-size: var(--novasaas-text-sm);
+	color: var(--novasaas-text-muted);
+	text-align: center;
+	margin-top: var(--novasaas-space-2);
+}
+
+.wp-block-image figcaption {
+	color: var(--novasaas-text-muted);
+	font-size: var(--novasaas-text-sm);
+}
+
+/* Gutenberg editor width */
+.wp-block { max-width: 100%; }
+
+/* =============================================================================
+   UTILITY HELPERS
+   ============================================================================= */
+
+.novasaas-text-center { text-align: center; }
+.novasaas-text-left   { text-align: left; }
+.novasaas-text-right  { text-align: right; }
+
+.novasaas-hidden      { display: none !important; }
+.novasaas-visually-hidden { visibility: hidden; }
+
+.novasaas-mt-0  { margin-top: 0; }
+.novasaas-mb-0  { margin-bottom: 0; }
+.novasaas-mt-4  { margin-top: var(--novasaas-space-4); }
+.novasaas-mb-4  { margin-bottom: var(--novasaas-space-4); }
+.novasaas-mt-8  { margin-top: var(--novasaas-space-8); }
+.novasaas-mb-8  { margin-bottom: var(--novasaas-space-8); }
+
+.novasaas-rounded     { border-radius: var(--novasaas-radius-md); }
+.novasaas-rounded-lg  { border-radius: var(--novasaas-radius-lg); }
+.novasaas-rounded-xl  { border-radius: var(--novasaas-radius-xl); }
+.novasaas-rounded-full{ border-radius: var(--novasaas-radius-full); }
+
+.novasaas-w-full      { width: 100%; }
+.novasaas-h-full      { height: 100%; }
+
+/* =============================================================================
+   RESPONSIVE VISIBILITY HELPERS
+   ============================================================================= */
+
+@media (max-width: 767px) {
+	.novasaas-hide-mobile { display: none !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.novasaas-hide-tablet { display: none !important; }
+}
+
+@media (min-width: 1024px) {
+	.novasaas-hide-desktop { display: none !important; }
+}

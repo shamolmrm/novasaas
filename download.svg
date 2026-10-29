@@ -1,0 +1,100 @@
+<svg class="novasaas-hero__mockup-svg novasaas-animate-float" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="StreamFlow dashboard">
+						<defs>
+							<linearGradient id="mockGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" style="stop-color:#6366F1;stop-opacity:1"></stop>
+								<stop offset="100%" style="stop-color:#EC4899;stop-opacity:1"></stop>
+							</linearGradient>
+							<linearGradient id="mockGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+								<stop offset="0%" style="stop-color:#6366F1;stop-opacity:0.8"></stop>
+								<stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.8"></stop>
+							</linearGradient>
+							<filter id="glow">
+								<feGaussianBlur stdDeviation="3" result="coloredBlur"></feGaussianBlur>
+								<feMerge><feMergeNode in="coloredBlur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+							</filter>
+						</defs>
+
+						<!-- App window -->
+						<rect x="0" y="0" width="600" height="420" rx="16" fill="#1A1530" stroke="rgba(99,102,241,0.3)" stroke-width="1"></rect>
+
+						<!-- Title bar -->
+						<rect x="0" y="0" width="600" height="44" rx="16" fill="#221C3D"></rect>
+						<rect x="0" y="28" width="600" height="16" fill="#221C3D"></rect>
+						<circle cx="22" cy="22" r="6" fill="#EF4444" opacity="0.8"></circle>
+						<circle cx="44" cy="22" r="6" fill="#F59E0B" opacity="0.8"></circle>
+						<circle cx="66" cy="22" r="6" fill="#10B981" opacity="0.8"></circle>
+						<rect x="120" y="16" width="200" height="12" rx="6" fill="rgba(99,102,241,0.2)"></rect>
+						<rect x="500" y="14" width="24" height="24" rx="12" fill="url(#mockGrad1)"></rect>
+
+						<!-- Sidebar -->
+						<rect x="0" y="44" width="140" height="376" fill="#150F2A"></rect>
+						<rect x="12" y="64" width="116" height="36" rx="8" fill="url(#mockGrad1)"></rect>
+						<text x="52" y="87" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="600">Dashboard</text>
+						<rect x="20" y="110" width="100" height="28" rx="6" fill="rgba(255,255,255,0.05)"></rect>
+						<rect x="20" y="146" width="100" height="28" rx="6" fill="rgba(255,255,255,0.05)"></rect>
+						<rect x="20" y="182" width="100" height="28" rx="6" fill="rgba(255,255,255,0.05)"></rect>
+						<rect x="20" y="218" width="100" height="28" rx="6" fill="rgba(255,255,255,0.05)"></rect>
+						<text x="40" y="129" fill="#94A3B8" font-family="Inter,sans-serif" font-size="10">Projects</text>
+						<text x="40" y="165" fill="#94A3B8" font-family="Inter,sans-serif" font-size="10">Team</text>
+						<text x="40" y="201" fill="#94A3B8" font-family="Inter,sans-serif" font-size="10">Analytics</text>
+						<text x="40" y="237" fill="#94A3B8" font-family="Inter,sans-serif" font-size="10">Settings</text>
+
+						<!-- Main area header -->
+						<text x="156" y="72" fill="#F8FAFC" font-family="Plus Jakarta Sans,sans-serif" font-size="16" font-weight="700">Good morning, Sarah 👋</text>
+						<text x="156" y="90" fill="#94A3B8" font-family="Inter,sans-serif" font-size="10">You have 3 tasks due today</text>
+
+						<!-- Stat cards row -->
+						<rect x="156" y="104" width="96" height="68" rx="10" fill="#221C3D" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<text x="174" y="128" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">Active Projects</text>
+						<text x="174" y="155" fill="#F8FAFC" font-family="Plus Jakarta Sans,sans-serif" font-size="22" font-weight="700">24</text>
+						<rect x="262" y="104" width="96" height="68" rx="10" fill="#221C3D" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<text x="280" y="128" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">Team Members</text>
+						<text x="280" y="155" fill="#F8FAFC" font-family="Plus Jakarta Sans,sans-serif" font-size="22" font-weight="700">48</text>
+						<rect x="368" y="104" width="96" height="68" rx="10" fill="#221C3D" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<text x="386" y="128" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">Tasks Done</text>
+						<text x="386" y="155" fill="#10B981" font-family="Plus Jakarta Sans,sans-serif" font-size="22" font-weight="700">142</text>
+						<rect x="474" y="104" width="110" height="68" rx="10" fill="#221C3D" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<text x="492" y="128" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">This Month</text>
+						<text x="492" y="155" fill="#EC4899" font-family="Plus Jakarta Sans,sans-serif" font-size="22" font-weight="700">$24k</text>
+
+						<!-- Chart area -->
+						<rect x="156" y="186" width="280" height="160" rx="10" fill="#221C3D" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<text x="172" y="207" fill="#F8FAFC" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="600">Revenue Overview</text>
+						<!-- Chart bars -->
+						<rect x="172" y="290" width="22" height="40" rx="4" fill="url(#mockGrad1)" opacity="0.7"></rect>
+						<rect x="204" y="270" width="22" height="60" rx="4" fill="url(#mockGrad1)" opacity="0.7"></rect>
+						<rect x="236" y="255" width="22" height="75" rx="4" fill="url(#mockGrad1)"></rect>
+						<rect x="268" y="275" width="22" height="55" rx="4" fill="url(#mockGrad1)" opacity="0.7"></rect>
+						<rect x="300" y="245" width="22" height="85" rx="4" fill="url(#mockGrad1)"></rect>
+						<rect x="332" y="260" width="22" height="70" rx="4" fill="url(#mockGrad1)" opacity="0.8"></rect>
+						<rect x="364" y="240" width="22" height="90" rx="4" fill="url(#mockGrad2)" filter="url(#glow)"></rect>
+						<!-- Chart line -->
+						<polyline points="183,295 215,275 247,260 279,278 311,248 343,265 375,242" fill="none" stroke="#06B6D4" stroke-width="2" stroke-dasharray="4 2" opacity="0.6"></polyline>
+
+						<!-- Task list -->
+						<rect x="446" y="186" width="138" height="160" rx="10" fill="#221C3D" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<text x="462" y="207" fill="#F8FAFC" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="600">Recent Tasks</text>
+						<rect x="462" y="218" width="106" height="24" rx="6" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.2)" stroke-width="1"></rect>
+						<circle cx="472" cy="230" r="5" fill="#10B981"></circle>
+						<text x="484" y="234" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">Design review ✓</text>
+						<rect x="462" y="250" width="106" height="24" rx="6" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<circle cx="472" cy="262" r="5" fill="#6366F1"></circle>
+						<text x="484" y="266" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">API integration</text>
+						<rect x="462" y="282" width="106" height="24" rx="6" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.2)" stroke-width="1"></rect>
+						<circle cx="472" cy="294" r="5" fill="#F59E0B"></circle>
+						<text x="484" y="298" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">Launch prep</text>
+						<rect x="462" y="314" width="106" height="24" rx="6" fill="rgba(236,72,153,0.1)" stroke="rgba(236,72,153,0.2)" stroke-width="1"></rect>
+						<circle cx="472" cy="326" r="5" fill="#EC4899"></circle>
+						<text x="484" y="330" fill="#94A3B8" font-family="Inter,sans-serif" font-size="9">User testing</text>
+
+						<!-- Progress bar area -->
+						<rect x="156" y="358" width="280" height="50" rx="10" fill="#221C3D" stroke="rgba(99,102,241,0.2)" stroke-width="1"></rect>
+						<text x="172" y="374" fill="#F8FAFC" font-family="Plus Jakarta Sans,sans-serif" font-size="10" font-weight="600">Sprint Progress</text>
+						<text x="390" y="374" fill="#6366F1" font-family="Inter,sans-serif" font-size="10" font-weight="600">72%</text>
+						<rect x="172" y="382" width="220" height="8" rx="4" fill="rgba(99,102,241,0.2)"></rect>
+						<rect x="172" y="382" width="158" height="8" rx="4" fill="url(#mockGrad1)"></rect>
+
+						<!-- Notification dot -->
+						<circle cx="567" cy="60" r="8" fill="#EC4899" filter="url(#glow)"></circle>
+						<text x="564" y="64" fill="#fff" font-family="Inter,sans-serif" font-size="8" font-weight="700">3</text>
+					</svg>

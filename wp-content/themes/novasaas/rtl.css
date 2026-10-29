@@ -1,0 +1,229 @@
+/**
+ * NovaSaaS — RTL Stylesheet
+ * Right-to-left language support (Arabic, Hebrew, Persian, Urdu, etc.)
+ *
+ * @package NovaSaaS
+ * @version 1.0.0
+ */
+
+/* ─── Base Direction ────────────────────────────────────────────────────── */
+body {
+	direction: rtl;
+	text-align: right;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-header__inner {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-nav {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-hamburger {
+	margin-left: 0;
+	margin-right: auto;
+}
+
+/* ─── Navigation Dropdowns ──────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-dropdown {
+	left: auto;
+	right: 0;
+}
+[dir="rtl"] .novasaas-nav .nav-item .dropdown-toggle .novasaas-chevron {
+	margin-left: 0;
+	margin-right: auto;
+}
+
+/* ─── Mobile Menu ───────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-mobile-menu {
+	left: 0;
+	right: auto;
+	border-left: none;
+	border-right: 1px solid var(--novasaas-border);
+	transform: translateX(-100%);
+}
+[dir="rtl"] .novasaas-mobile-menu:not([hidden]) {
+	transform: translateX(0);
+}
+
+/* ─── Hero ──────────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-hero__content {
+	direction: rtl;
+}
+[dir="rtl"] .novasaas-hero__actions {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-hero__social-proof {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-hero__avatars {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-hero__avatars .novasaas-svg-avatar {
+	margin-left: 0;
+	margin-right: -8px;
+}
+[dir="rtl"] .novasaas-hero__avatars .novasaas-svg-avatar:first-child {
+	margin-right: 0;
+}
+
+/* ─── Stat Cards ────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-hero__stat-card:nth-child(2) {
+	left: auto;
+	right: -2rem;
+}
+[dir="rtl"] .novasaas-hero__stat-card:nth-child(3) {
+	right: auto;
+	left: -2rem;
+}
+
+/* ─── Features ──────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-feature-card__icon {
+	margin-left: auto;
+	margin-right: 0;
+}
+
+/* ─── Pricing ───────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-pricing__toggle {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-pricing-card__features li {
+	flex-direction: row-reverse;
+}
+
+/* ─── Testimonials ──────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-testimonial-card__author {
+	flex-direction: row-reverse;
+}
+
+/* ─── FAQ ───────────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-faq-item__trigger {
+	flex-direction: row-reverse;
+	text-align: right;
+}
+
+/* ─── Post Cards ────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-post-card__meta {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-post-card__author {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-post-card__read-more {
+	flex-direction: row-reverse;
+}
+
+/* ─── Single Post ───────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-post-author-row {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-post-author-row__name,
+[dir="rtl"] .novasaas-post-author-row__meta {
+	text-align: right;
+}
+[dir="rtl"] .novasaas-post-body blockquote {
+	border-left: none;
+	border-right: 3px solid var(--novasaas-primary);
+	padding-left: 0;
+	padding-right: 1.5rem;
+}
+[dir="rtl"] .novasaas-post-body ul,
+[dir="rtl"] .novasaas-post-body ol {
+	padding-left: 0;
+	padding-right: 1.5rem;
+}
+[dir="rtl"] .novasaas-page-content blockquote {
+	border-left: none;
+	border-right: 3px solid var(--novasaas-primary);
+	padding-left: 0;
+	padding-right: 1.5rem;
+}
+[dir="rtl"] .novasaas-page-content ul,
+[dir="rtl"] .novasaas-page-content ol {
+	padding-left: 0;
+	padding-right: 1.5rem;
+}
+[dir="rtl"] .novasaas-share-row {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-author-box {
+	flex-direction: row-reverse;
+}
+
+/* ─── Author Box Social Links ───────────────────────────────────────────── */
+[dir="rtl"] .novasaas-author-box__social {
+	flex-direction: row-reverse;
+}
+
+/* ─── Breadcrumb ────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-breadcrumb {
+	direction: rtl;
+}
+
+/* ─── Footer ────────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-footer__bottom {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-footer__social {
+	flex-direction: row-reverse;
+}
+[dir="rtl"] .novasaas-footer__nav ul {
+	flex-direction: row-reverse;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-archive-layout {
+	direction: rtl;
+}
+[dir="rtl"] .novasaas-single-layout {
+	direction: rtl;
+}
+
+/* ─── Contact Form ──────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-contact-info__item {
+	flex-direction: row-reverse;
+}
+
+/* ─── Search ────────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-search-form-wrap .novasaas-search-icon {
+	left: auto;
+	right: 1.1rem;
+}
+[dir="rtl"] .novasaas-search-form-wrap input[type="search"] {
+	padding: 1rem 3.25rem 1rem 1.25rem;
+}
+[dir="rtl"] .novasaas-search-form-wrap button[type="submit"] {
+	right: auto;
+	left: .375rem;
+}
+[dir="rtl"] .novasaas-search-item {
+	direction: rtl;
+}
+
+/* ─── Back to Top ───────────────────────────────────────────────────────── */
+[dir="rtl"] #novasaas-back-to-top {
+	right: auto;
+	left: 2rem;
+}
+
+/* ─── Skip Link ─────────────────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-skip-link {
+	left: auto;
+	right: 1rem;
+}
+
+/* ─── Glassmorphism Cards — inner border gradient flipped ───────────────── */
+[dir="rtl"] .novasaas-glass-card {
+	background: var(--novasaas-glass-bg);
+}
+
+/* ─── How It Works connecting line ─────────────────────────────────────── */
+[dir="rtl"] .novasaas-how__grid::before {
+	background: linear-gradient(270deg, var(--novasaas-primary), var(--novasaas-secondary));
+}
+
+/* ─── Buttons with arrows ───────────────────────────────────────────────── */
+[dir="rtl"] .novasaas-btn,
+[dir="rtl"] .novasaas-btn-outline {
+	direction: rtl;
+}
